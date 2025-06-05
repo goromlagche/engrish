@@ -129,4 +129,3 @@ MIT — free to use, share, and modify.
 
 Built with ❤️ for all non-native English speakers using Linux + Wayland.
 
-```
