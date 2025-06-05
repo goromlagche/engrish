@@ -127,5 +127,4 @@ MIT — free to use, share, and modify.
 
 ## 🙏 Credits
 
-Built with ❤️ for all non-native English speakers using Linux + Wayland.
-
+Built with ❤️ for all non-native English speakers.
