@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/cf40cf76-1472-4f41-89fd-eb3687ee4e85)
+
+
 # ✍️ Wayland Writing Assistant (Ollama-powered)
 
 A minimal writing assistant for Wayland users that enhances your English text with a single hotkey and local LLM processing.
