@@ -1,30 +1,44 @@
 version: '3.8'
 
 services:
-  # Ollama with AMD GPU support - NO INTERNET ACCESS
   ollama:
+    image: ollama/ollama:rocm
+    container_name: ollama
     devices:
       - /dev/kfd:/dev/kfd
       - /dev/dri:/dev/dri
-    image: ollama/ollama:rocm
     environment:
-      - "HSA_OVERRIDE_GFX_VERSION=10.3.0"
+      - HSA_OVERRIDE_GFX_VERSION=10.3.0
     volumes:
       - ollama:/root/.ollama
-    container_name: ollama
-    tty: true
-    restart: unless-stopped
     networks:
       - ollama-network
-    # Start with pre-downloaded model (no internet access)
-    command: ollama serve
+    tty: true
+    restart: unless-stopped
+    entrypoint: >
+      sh -c "
+      echo '🔄 Starting Ollama server...' &&
+      nohup ollama serve > /tmp/ollama.log 2>&1 &
 
-  # Writing Assistant with Global Hotkey - NO INTERNET ACCESS
+      echo '⏳ Waiting for Ollama API...' &&
+      until ollama list > /dev/null 2>&1; do
+        echo '⌛ Still waiting for Ollama...'
+        sleep 2
+      done
+
+      echo '📦 Pulling model: mistral:7b-instruct' &&
+      ollama pull mistral:7b-instruct &&
+      echo '✅ Model pulled! Now tailing server logs...' &&
+
+      tail -f /tmp/ollama.log
+      "
+
   writing-assistant:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: writing-assistant
+    user: "${USER_ID:-1000}:${GROUP_ID:-1000}"
     stdin_open: true
     tty: true
     depends_on:
@@ -32,10 +46,7 @@ services:
     environment:
       - OLLAMA_URL=http://ollama:11434
       - OLLAMA_MODEL=mistral:7b-instruct
-      - DISPLAY=${DISPLAY}
     volumes:
-      # X11 forwarding for hotkey detection and clipboard access
-      - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /tmp:/tmp
     networks:
       - ollama-network
@@ -47,4 +58,3 @@ volumes:
 networks:
   ollama-network:
     driver: bridge
-    internal: true
