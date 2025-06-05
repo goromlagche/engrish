@@ -8,7 +8,7 @@ A minimal writing assistant for Wayland users that enhances your English text wi
 ---
 
 ## 🧠 Why I Built This
-My writing skills are poor, so I use ChatGPT for almost all my writing — even single sentences.  
+My writing skills are less than ideal, so I rely heavily on ChatGPT for most of my writing.
 I developed this little tool using [Ollama](https://ollama.com) so I can just **press a hotkey (mod + x)** to fix my text, then **Ctrl + V** to paste the improved version.
 
 No browser, no ChatGPT tab, no distraction — just instant local help.
