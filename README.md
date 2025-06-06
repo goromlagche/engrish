@@ -104,10 +104,10 @@ You can change the model in the `OLLAMA_MODEL` environment variable.
 
 ## 💬 Example Workflow
 
-1. Select and copy: `My english is bad`
+1. Select and copy: `My writing is bad`
 2. Press hotkey (`mod + x`)
 3. Press `Ctrl+V`
-4. Pasted: `My English needs improvement.` ✅
+4. Pasted: `My writing needs improvement.` ✅
 
 ---
 
