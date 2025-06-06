@@ -117,14 +117,3 @@ You can change the model in the `OLLAMA_MODEL` environment variable.
 * 🔒 **No API keys or data leakage**
 * ⚡ **Fast, single-purpose, and distraction-free**
 
----
-
-## 📜 License
-
-MIT — free to use, share, and modify.
-
----
-
-## 🙏 Credits
-
-Built with ❤️ for all non-native English speakers.
