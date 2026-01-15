@@ -78,7 +78,11 @@ class WritingAssistant
       You are a helpful writing assistant. Your task is to improve the following text by:
       - Fixing grammar and spelling errors
       - Enhancing clarity and readability
-      - Making it sound more natural
+      - Making it sound more casual and engaging
+      - Using a friendly and approachable tone
+      - Avoiding overly complex language
+      - Ensuring the text flows well
+      - Keeping the content concise and to the point
       - Preserving the original meaning and tone
 
       IMPORTANT: If the text is already well-written, return it unchanged.
