@@ -59,7 +59,7 @@ class WritingAssistant
       model: @model,
       prompt: build_prompt(text),
       stream: false,
-      options: { temperature: 0.3, num_predict: 1000 }
+      options: { temperature: 0.3, num_predict: 1000, think: false }
     }
 
     request = Net::HTTP::Post.new(uri)
